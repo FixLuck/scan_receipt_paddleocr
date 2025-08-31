@@ -1,0 +1,8 @@
+opencv
+paddlepaddle
+paddleocr
+vietocr
+Pillow
+torch
+torchvision
+pandas
