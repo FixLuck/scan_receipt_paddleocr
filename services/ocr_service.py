@@ -11,7 +11,7 @@ import os
 class OCRService:
     def __init__(self):
         self.DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
-        self.VIETOCR_MODEL_PATH = r'C:\Users\caube\AppData\Local\Temp\vgg_transformer.pth'
+        self.VIETOCR_MODEL_PATH = r'C:\Users\caube\AppData\Local\Temp\vgg_seq2seq.pth'
         self.output_dir = "output"
         os.makedirs(self.output_dir, exist_ok=True)
 
@@ -27,7 +27,7 @@ class OCRService:
 
     def load_vietocr_config(self):
         """Load and configure VietOCR model."""
-        config = Cfg.load_config_from_name('vgg_transformer')
+        config = Cfg.load_config_from_name('vgg_seq2seq')
         config['weights'] = self.VIETOCR_MODEL_PATH
         config['device'] = self.DEVICE
         return config

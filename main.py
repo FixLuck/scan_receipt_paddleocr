@@ -62,11 +62,11 @@ async def process(file: UploadFile = File(...)):
         if cropped_results:
             df_boxes = ocr_service.create_boxes_dataframe(cropped_results)
             line_df = ocr_service.group_boxes_to_lines(df_boxes)
-            line_results = [(idx, row['line_text'], row['bbox']) for idx, row in line_df.iterrows()]
+            # line_results = [(idx, row['line_text'], row['bbox']) for idx, row in line_df.iterrows()]
             # Extract text from line results using attribute access
             extract_text = "\n".join(row.line_text for row in line_df.itertuples())
         else:
-            line_results = []
+            # line_results = []
             extract_text = ""
 
         # Extract specific information
